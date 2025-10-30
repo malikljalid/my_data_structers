@@ -2,17 +2,12 @@
 #include <iostream>
 
 // ----------- declaration prototypes ----------------
-void arrInsertTop(int elem, int *arr, int &size);
+void arrAddTop(int elem, int *arr, int &size);
+void arrAddButtom(int elem, int *arr, int &size);
 void arrPrintContent(int *arr, int size);
 
 
-// -------------- inserting methods ----------------
-void arrInsertTop(int elem, int *arr, int &size)
-{
-    arr[size] = elem;
-    size++;
-}
-
+// ----------------- shifting methods -----------------
 void arrShiftLift(int *arr, int size)
 {
     int tmp = arr[0];
@@ -33,7 +28,19 @@ void arrShiftRight(int *arr, int size)
     arr[0] = tmp;
 }
 
+// -------------- inserting methods ----------------
+void arrAddTop(int elem, int *arr, int &size)
+{
+    arr[size] = elem;
+    size++;
+}
 
+void arrAddButtom(int elem, int *arr, int &size)
+{
+    size++;
+    arrShiftRight(arr, size);
+    arr[0] = elem;
+}
 
 // --------------- printing methods ----------------
 void arrPrintContent(int *arr, int size)
