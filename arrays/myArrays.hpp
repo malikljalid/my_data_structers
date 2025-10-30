@@ -28,7 +28,7 @@ void arrShiftRight(int *arr, int size)
     arr[0] = tmp;
 }
 
-// -------------- inserting methods ----------------
+// -------------- inserting methods -------------------
 void arrAddTop(int elem, int *arr, int &size)
 {
     arr[size] = elem;
@@ -37,9 +37,8 @@ void arrAddTop(int elem, int *arr, int &size)
 
 void arrAddButtom(int elem, int *arr, int &size)
 {
-    size++;
+    arrAddTop(elem, arr, size);
     arrShiftRight(arr, size);
-    arr[0] = elem;
 }
 
 void arrAddInPosition(int elem, int pos, int *arr, int &size)
@@ -49,7 +48,26 @@ void arrAddInPosition(int elem, int pos, int *arr, int &size)
     arr[pos] = elem;
 }
 
-// --------------- printing methods ----------------
+
+// --------------- deleting methods -------------------
+void arrDeleteTop(int *arr, int &size)
+{
+    arr[size - 1] = 0;
+    size--;
+}
+
+void arrDeleteButtom(int *arr, int &size)
+{
+    arrShiftLift(arr, size);
+    arrDeleteTop(arr, size);
+}
+
+void arrDeletePostion(int pos, int *arr, int &size)
+{
+    arrShiftLift(arr + pos, size - pos);
+}
+
+// --------------- printing methods -------------------
 void arrPrintContent(int *arr, int size)
 {
     std::cout << "Array : ";
