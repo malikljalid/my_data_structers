@@ -8,14 +8,13 @@ int main(void)
     int arr[MAXSIZE];
     int size = 0;
 
-    arrInsertTop(7, arr, size);
-    arrInsertTop(20, arr, size);
-    arrInsertTop(6, arr, size);
-    arrInsertTop(97, arr, size);
-    arrInsertTop(13, arr, size);
+    arrAddTop(7, arr, size);
+    arrAddTop(20, arr, size);
+    arrAddTop(6, arr, size);
     arrPrintContent(arr, size);
 
-    arrShiftRight(arr, size);
+    arrAddButtom(13, arr, size);
+    arrAddButtom(97, arr, size);
     arrPrintContent(arr, size);
 
     return (0);
