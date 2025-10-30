@@ -2,9 +2,20 @@
 #include <iostream>
 
 // ----------- declaration prototypes ----------------
+void arrShiftLift(int *arr, int size);
+void arrShiftRight(int *arr, int size);
+
 void arrAddTop(int elem, int *arr, int &size);
 void arrAddButtom(int elem, int *arr, int &size);
+void arrAddInPosition(int elem, int pos, int *arr, int &size);
+
+void arrDeleteTop(int *arr, int &size);
+void arrDeleteButtom(int *arr, int &size);
+void arrDeletePostion(int pos, int *arr, int &size);
+
 void arrPrintContent(int *arr, int size);
+
+
 
 
 // ----------------- shifting methods -----------------
