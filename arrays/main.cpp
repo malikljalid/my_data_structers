@@ -17,5 +17,8 @@ int main(void)
     arrAddButtom(97, arr, size);
     arrPrintContent(arr, size);
 
+    arrAddInPosition(42, 2, arr, size);
+    arrPrintContent(arr, size);
+
     return (0);
 }
