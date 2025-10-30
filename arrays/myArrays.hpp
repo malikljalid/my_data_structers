@@ -43,11 +43,9 @@ void arrAddButtom(int elem, int *arr, int &size)
 
 void arrAddInPosition(int elem, int pos, int *arr, int &size)
 {
-    size++;
+    arrAddTop(elem, arr, size);
     arrShiftRight(arr + pos, size - pos);
-    arr[pos] = elem;
 }
-
 
 // --------------- deleting methods -------------------
 void arrDeleteTop(int *arr, int &size)
@@ -65,6 +63,7 @@ void arrDeleteButtom(int *arr, int &size)
 void arrDeletePostion(int pos, int *arr, int &size)
 {
     arrShiftLift(arr + pos, size - pos);
+    arrDeleteTop(arr, size);
 }
 
 // --------------- printing methods -------------------
