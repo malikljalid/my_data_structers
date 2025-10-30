@@ -2,6 +2,9 @@
 #include <iostream>
 
 // ----------- declaration prototypes ----------------
+// ---------------------------------------------------
+int  arrGetIndexOf(int value, int *arr, int &size);
+
 void arrShiftLift(int *arr, int size);
 void arrShiftRight(int *arr, int size);
 
@@ -14,9 +17,22 @@ void arrDeleteButtom(int *arr, int &size);
 void arrDeletePostion(int pos, int *arr, int &size);
 
 void arrPrintContent(int *arr, int size);
+// ---------------------------------------------------
+// ---------------------------------------------------
 
 
 
+// --------------- index getter -----------------------
+int  arrGetIndexOf(int value, int *arr, int &size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (value == arr[i])
+            return (i);
+    }
+
+    return (-1);
+}
 
 // ----------------- shifting methods -----------------
 void arrShiftLift(int *arr, int size)
@@ -71,10 +87,15 @@ void arrDeleteButtom(int *arr, int &size)
     arrDeleteTop(arr, size);
 }
 
-void arrDeletePostion(int pos, int *arr, int &size)
+void arrDeletePosition(int pos, int *arr, int &size)
 {
     arrShiftLift(arr + pos, size - pos);
     arrDeleteTop(arr, size);
+}
+
+void arrDeleteValue(int value, int *arr, int &size)
+{
+    arrDeletePosition(arrGetIndexOf(value, arr, size), arr, size);
 }
 
 // --------------- printing methods -------------------
