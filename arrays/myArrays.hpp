@@ -3,7 +3,7 @@
 
 // ----------- declaration prototypes ----------------
 // ---------------------------------------------------
-int  arrGetIndexOf(int value, int *arr, int &size);
+int  arrGetIndexOf(int value, int *arr, int size);
 
 void arrShiftLift(int *arr, int size);
 void arrShiftRight(int *arr, int size);
@@ -23,7 +23,7 @@ void arrPrintContent(int *arr, int size);
 
 
 // --------------- index getter -----------------------
-int  arrGetIndexOf(int value, int *arr, int &size)
+int  arrGetIndexOf(int value, int *arr, int size)
 {
     for (int i = 0; i < size; i++)
     {
@@ -32,6 +32,18 @@ int  arrGetIndexOf(int value, int *arr, int &size)
     }
 
     return (-1);
+}
+
+int  arrGetOccuranceOf(int value, int *arr, int size)
+{
+    int i   = 0;
+    int occ = 0;
+
+    while (i != -1)
+    {
+        i = arrGetIndexOf(value, arr + i, size - i);
+        occ++;
+    }
 }
 
 // ----------------- shifting methods -----------------
