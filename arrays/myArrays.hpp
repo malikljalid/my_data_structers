@@ -42,6 +42,13 @@ void arrAddButtom(int elem, int *arr, int &size)
     arr[0] = elem;
 }
 
+void arrAddInPosition(int elem, int pos, int *arr, int &size)
+{
+    size++;
+    arrShiftRight(arr + pos, size - pos);
+    arr[pos] = elem;
+}
+
 // --------------- printing methods ----------------
 void arrPrintContent(int *arr, int size)
 {
