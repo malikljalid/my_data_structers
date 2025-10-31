@@ -36,14 +36,10 @@ int  arrGetIndexOf(int value, int *arr, int size)
 
 int  arrGetOccuranceOf(int value, int *arr, int size)
 {
-    int i   = 0;
-    int occ = 0;
-
-    while (i != -1)
-    {
-        i = arrGetIndexOf(value, arr + i, size - i);
-        occ++;
-    }
+    int i = arrGetIndexOf(value, arr, size);
+    if (i == -1)
+        return (0);
+    return (arrGetOccuranceOf(value, arr + i + 1, size - i - 1) + 1);
 }
 
 // ----------------- shifting methods -----------------
@@ -108,6 +104,17 @@ void arrDeletePosition(int pos, int *arr, int &size)
 void arrDeleteValue(int value, int *arr, int &size)
 {
     arrDeletePosition(arrGetIndexOf(value, arr, size), arr, size);
+}
+
+void arrDeleteAllValuesOf(int value, int *arr, int &size)
+{
+    int pos = arrGetIndexOf(value, arr, size);
+
+    while (pos != -1)
+    {
+        arrDeletePosition(pos, arr, size);
+        pos = arrGetIndexOf(value, arr, size);
+    }
 }
 
 // --------------- printing methods -------------------
